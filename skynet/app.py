@@ -76,7 +76,7 @@ def configure_logging(app):
         gelf_handler.setFormatter(gelf_formatter)
         gelf_handler.setLevel(app.config.get("GELF_LOG_LEVEL", logging.WARNING))
         app.logger.addHandler(gelf_handler)
-        app.logger.warn('EggsNSpam Flask Service Started! PID={}.'.format(os.getpid()))
+        app.logger.warn('Skynet Flask Service Started! PID={}.'.format(os.getpid()))
 
     # Set default level on logger, which might be overwritten by handlers.
     app.logger.setLevel(app.config.get("LOG_LEVEL", logging.WARNING))

@@ -1,8 +1,8 @@
 from sqlalchemy.sql.expression import text
 
 from . import BaseTestCase
-from eggsnspam.common.daos import SqlBaseDao
-from eggsnspam.common.recommendations import dot_product
+from skynet.common.daos import SqlBaseDao
+from skynet.common.recommendations import dot_product
 from .mixins import BaseDaoFixturedTestCase
 
 

@@ -1,6 +1,6 @@
 from sqlalchemy.sql.expression import text
 
-from eggsnspam.common.daos import SqlBaseDao
+from skynet.common.daos import SqlBaseDao
 
 
 class BreakfastRecsDao(SqlBaseDao):

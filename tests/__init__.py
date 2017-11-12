@@ -1,7 +1,7 @@
 from flask.ext.testing import TestCase
 
-from eggsnspam import create_app
-from eggsnspam.extensions import db
+from skynet import create_app
+from skynet.extensions import db
 
 
 class BaseTestCase(TestCase):

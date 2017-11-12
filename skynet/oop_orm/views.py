@@ -6,9 +6,9 @@ from sqlalchemy.exc import IntegrityError
 from .forms import UserForm, UserPreferenceForm, UserPreferenceUpdateForm
 from .models import Breakfast, Ingredient, User, UserPreference
 
-from eggsnspam.common import healthcheck_views
-from eggsnspam.common import responses
-from eggsnspam.extensions import db
+from skynet.common import healthcheck_views
+from skynet.common import responses
+from skynet.extensions import db
 
 
 oop_orm = Blueprint('oop_orm', __name__, url_prefix='/oop_orm')

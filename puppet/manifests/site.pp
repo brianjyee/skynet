@@ -16,4 +16,4 @@ File {
 }
 
 include baseconfig
-include eggsnspam
+include skynet

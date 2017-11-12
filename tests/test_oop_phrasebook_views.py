@@ -13,7 +13,7 @@ class HealthViewTestCase(HealthViewTestCaseMixin, BaseTestCase):
 
 class BreakfastTestCase(BaseTestCase):
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.BreakfastDao.list_all')
+    @mock.patch('skynet.oop_phrasebook.daos.BreakfastDao.list_all')
     def test_list_breakfasts(self, m_list_all):
         """It lists all the breakfasts in the database"""
 
@@ -46,7 +46,7 @@ class BreakfastTestCase(BaseTestCase):
         for breakfast in response_data['breakfasts']:
             self.assertIn(breakfast['id'], breakfast_ids)
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.BreakfastDao.get_by_id')
+    @mock.patch('skynet.oop_phrasebook.daos.BreakfastDao.get_by_id')
     def test_get_breakfast(self, m_get_by_id):
         """It lists all the breakfasts in the database"""
 
@@ -69,7 +69,7 @@ class BreakfastTestCase(BaseTestCase):
 
 class IngredientTestCase(BaseTestCase):
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.IngredientDao.list_all')
+    @mock.patch('skynet.oop_phrasebook.daos.IngredientDao.list_all')
     def test_list_ingredients(self, m_list_all):
         """It lists all the ingredients in the database"""
 
@@ -102,7 +102,7 @@ class IngredientTestCase(BaseTestCase):
         for ingredient in response_data['ingredients']:
             self.assertIn(ingredient['id'], ingredient_ids)
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.IngredientDao.get_by_id')
+    @mock.patch('skynet.oop_phrasebook.daos.IngredientDao.get_by_id')
     def test_get_ingredient(self, m_get_by_id):
         """It lists all the ingredients in the database"""
 
@@ -125,7 +125,7 @@ class IngredientTestCase(BaseTestCase):
 
 class UserTestCase(BaseTestCase):
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserDao.list_all')
+    @mock.patch('skynet.oop_phrasebook.daos.UserDao.list_all')
     def test_list_users(self, m_list_all):
         """It lists all the users in the database"""
 
@@ -158,7 +158,7 @@ class UserTestCase(BaseTestCase):
         for user in response_data['users']:
             self.assertIn(user['id'], user_ids)
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserDao.create')
+    @mock.patch('skynet.oop_phrasebook.daos.UserDao.create')
     def test_create_user(self, m_create):
         """It creates a user record in the database"""
         m_create.return_value = 1
@@ -185,7 +185,7 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(response_data['first_name'], request_data['first_name'])
         self.assertEqual(response_data['last_name'], request_data['last_name'])
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserDao.get_by_id')
+    @mock.patch('skynet.oop_phrasebook.daos.UserDao.get_by_id')
     def test_get_user(self, m_get_by_id):
         """It lists all the users in the database"""
 
@@ -206,8 +206,8 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(response_data['first_name'], mocked_user_data['first_name'])
         self.assertEqual(response_data['last_name'], mocked_user_data['last_name'])
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.BreakfastIngredientDao.list_all')
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserDao.get_by_id_join_preferences')
+    @mock.patch('skynet.oop_phrasebook.daos.BreakfastIngredientDao.list_all')
+    @mock.patch('skynet.oop_phrasebook.daos.UserDao.get_by_id_join_preferences')
     def test_breakfast_recommendations(self, m_get_by_id_join_preferences, m_list_all):
         """It returns the recommended breakfasts for a user"""
 
@@ -250,8 +250,8 @@ class UserTestCase(BaseTestCase):
         self.assertTrue('breakfast_id' in response_data['breakfast_recs'][0])
         self.assertTrue('score' in response_data['breakfast_recs'][0])
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserDao.get_by_id')
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserDao.update')
+    @mock.patch('skynet.oop_phrasebook.daos.UserDao.get_by_id')
+    @mock.patch('skynet.oop_phrasebook.daos.UserDao.update')
     def test_update_user(self, m_update, m_get_by_id):
         """It updates a user in the database"""
         request_data = {
@@ -278,8 +278,8 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(m_update.call_args[1]['first_name'], request_data['first_name'])
         self.assertEqual(m_update.call_args[1]['last_name'], request_data['last_name'])
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserDao.get_by_id')
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserDao.delete')
+    @mock.patch('skynet.oop_phrasebook.daos.UserDao.get_by_id')
+    @mock.patch('skynet.oop_phrasebook.daos.UserDao.delete')
     def test_delete_user(self, m_delete, m_get_by_id):
         """It creates a user record in the database"""
 
@@ -313,8 +313,8 @@ class UserPreferencesTestCase(BaseTestCase):
         self.user_id = 1
         self.list_url = self.list_url_template.format(user_id=self.user_id)
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserDao.get_by_id')
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserPreferenceDao.list_all_for_user')
+    @mock.patch('skynet.oop_phrasebook.daos.UserDao.get_by_id')
+    @mock.patch('skynet.oop_phrasebook.daos.UserPreferenceDao.list_all_for_user')
     def test_list_user_preferences(self, m_list_all_for_user, m_get_by_id):
         """It lists all the user preferences in the database"""
 
@@ -348,8 +348,8 @@ class UserPreferencesTestCase(BaseTestCase):
         self.assertIn("user_preferences", response_data)
         self.assertEqual(len(response_data["user_preferences"]), 3)
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserPreferenceDao.create')
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserDao.get_by_id')
+    @mock.patch('skynet.oop_phrasebook.daos.UserPreferenceDao.create')
+    @mock.patch('skynet.oop_phrasebook.daos.UserDao.get_by_id')
     def test_create_user_preference(self, m_get_by_id, m_create):
         """It creates a user preference record in the database"""
 
@@ -380,7 +380,7 @@ class UserPreferencesTestCase(BaseTestCase):
         self.assertEqual(response_data['ingredient_id'], request_data['ingredient_id'])
         self.assertEqual(response_data['coefficient'], request_data['coefficient'])
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserPreferenceDao.get_by_user_ingredient')
+    @mock.patch('skynet.oop_phrasebook.daos.UserPreferenceDao.get_by_user_ingredient')
     def test_get_user_preference(self, m_get_by_user_ingredient):
         """It lists all the users in the database"""
 
@@ -396,8 +396,8 @@ class UserPreferencesTestCase(BaseTestCase):
                                    content_type='application/json')
         self.assertEqual(response.status_code, 200)
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserPreferenceDao.update')
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserPreferenceDao.get_by_user_ingredient')
+    @mock.patch('skynet.oop_phrasebook.daos.UserPreferenceDao.update')
+    @mock.patch('skynet.oop_phrasebook.daos.UserPreferenceDao.get_by_user_ingredient')
     def test_update_user_preference(self, m_get_by_user_ingredient, m_update):
         """It updates a user preference in the database"""
 
@@ -421,8 +421,8 @@ class UserPreferencesTestCase(BaseTestCase):
         response_data = json.loads(response.data)
         self.assertEqual(response_data['coefficient'], request_data['coefficient'])
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserPreferenceDao.delete')
-    @mock.patch('eggsnspam.oop_phrasebook.daos.UserPreferenceDao.get_by_user_ingredient')
+    @mock.patch('skynet.oop_phrasebook.daos.UserPreferenceDao.delete')
+    @mock.patch('skynet.oop_phrasebook.daos.UserPreferenceDao.get_by_user_ingredient')
     def test_delete_user_preference(self, m_get_by_user_ingredient, m_delete):
         """It deletes a user record in the database"""
 

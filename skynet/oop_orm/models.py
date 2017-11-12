@@ -1,7 +1,7 @@
 """SQLAlchemy model definitions."""
 
-from eggsnspam.common.recommendations import dot_product
-from eggsnspam.extensions import db
+from skynet.common.recommendations import dot_product
+from skynet.extensions import db
 
 
 class Breakfast(db.Model):

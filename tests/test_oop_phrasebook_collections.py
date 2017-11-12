@@ -2,10 +2,10 @@ import mock
 
 from . import BaseTestCase
 from .mixins import PhrasebookFixturedTestCase
-from eggsnspam.oop_phrasebook.models import (BreakfastModel, IngredientModel,
-                                             UserModel, UserPreferenceModel)
-from eggsnspam.oop_phrasebook.collections import (BreakfastCollection, IngredientCollection,
-                                                  UserCollection, UserPreferenceCollection)
+from skynet.oop_phrasebook.models import (BreakfastModel, IngredientModel,
+                                          UserModel, UserPreferenceModel)
+from skynet.oop_phrasebook.collections import (BreakfastCollection, IngredientCollection,
+                                               UserCollection, UserPreferenceCollection)
 
 
 class BreakfastCollectionTestCase(PhrasebookFixturedTestCase, BaseTestCase):
@@ -18,7 +18,7 @@ class BreakfastCollectionTestCase(PhrasebookFixturedTestCase, BaseTestCase):
         self.assertEqual(breakfast.id, 1)
         self.assertEqual(breakfast.name, 'Karma')
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.SqlBaseDao.fetchall')
+    @mock.patch('skynet.oop_phrasebook.daos.SqlBaseDao.fetchall')
     def test_load_all(self, m_fetchall):
         """It gets all the breakfasts from the database"""
         m_fetchall.return_value = [{'id': 1, 'name': 'Argyle'},
@@ -41,7 +41,7 @@ class IngredientCollectionTestCase(PhrasebookFixturedTestCase, BaseTestCase):
         self.assertEqual(ingredient.id, 1)
         self.assertEqual(ingredient.name, 'Karma')
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.SqlBaseDao.fetchall')
+    @mock.patch('skynet.oop_phrasebook.daos.SqlBaseDao.fetchall')
     def test_load_all(self, m_fetchall):
         """It gets all the ingredients from the database"""
         m_fetchall.return_value = [{'id': 1, 'name': 'Argyle'},
@@ -65,7 +65,7 @@ class UserCollectionTestCase(PhrasebookFixturedTestCase, BaseTestCase):
         self.assertEqual(user.first_name, 'Karma')
         self.assertEqual(user.last_name, 'Kabana')
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.SqlBaseDao.fetchall')
+    @mock.patch('skynet.oop_phrasebook.daos.SqlBaseDao.fetchall')
     def test_load_all(self, m_fetchall):
         """It gets all the Users from the database"""
         m_fetchall.return_value = [{'id': 1, 'first_name': 'Argyle', 'last_name': 'Armani'},
@@ -91,7 +91,7 @@ class UserPreferenceCollectionTestCase(PhrasebookFixturedTestCase, BaseTestCase)
         self.assertEqual(user_pref.ingredient_id, 456)
         self.assertEqual(user_pref.coefficient, 0.8)
 
-    @mock.patch('eggsnspam.oop_phrasebook.daos.SqlBaseDao.fetchall')
+    @mock.patch('skynet.oop_phrasebook.daos.SqlBaseDao.fetchall')
     def test_load_all_for_user(self, m_fetchall):
         """It gets all the Users from the database"""
         m_fetchall.return_value = [{'coefficient': 0.8, 'ingredient_id': 1, 'user_id': 1, 'id': 1},

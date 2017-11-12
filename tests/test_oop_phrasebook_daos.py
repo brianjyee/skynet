@@ -1,6 +1,6 @@
 from . import BaseTestCase
-from eggsnspam.oop_phrasebook.daos import (BreakfastDao, IngredientDao, UserDao,
-                                           UserPreferenceDao, BreakfastIngredientDao)
+from skynet.oop_phrasebook.daos import (BreakfastDao, IngredientDao, UserDao,
+                                        UserPreferenceDao, BreakfastIngredientDao)
 from .mixins import PhrasebookFixturedTestCase
 
 

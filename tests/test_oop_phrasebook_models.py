@@ -2,7 +2,7 @@ import mock
 
 from . import BaseTestCase
 from .mixins import PhrasebookFixturedTestCase
-from eggsnspam.oop_phrasebook.models import BreakfastModel, IngredientModel, UserModel, UserPreferenceModel
+from skynet.oop_phrasebook.models import BreakfastModel, IngredientModel, UserModel, UserPreferenceModel
 
 
 class BreakfastModelTestCase(PhrasebookFixturedTestCase, BaseTestCase):

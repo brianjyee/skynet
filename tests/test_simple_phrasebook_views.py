@@ -8,8 +8,8 @@ from .mixins import PhrasebookFixturedTestCase
 
 class BreakfastTestCase(PhrasebookFixturedTestCase, BaseTestCase):
 
-    @mock.patch('eggsnspam.simple_phrasebook.daos.BreakfastRecsDao.get_ingredient_preferences')
-    @mock.patch('eggsnspam.simple_phrasebook.daos.BreakfastRecsDao.get_all_breakfast_ingredients')
+    @mock.patch('skynet.simple_phrasebook.daos.BreakfastRecsDao.get_ingredient_preferences')
+    @mock.patch('skynet.simple_phrasebook.daos.BreakfastRecsDao.get_all_breakfast_ingredients')
     def test_breakfast_recommendations(self, m_get_all_breakfast_ingredients, m_get_ingredient_preferences):
         """It returns the recommended breakfasts for a user"""
         m_get_all_breakfast_ingredients.return_value = [

@@ -3,8 +3,8 @@ import json
 from factories.oop_orm_factories import (BreakfastFactory, IngredientFactory, UserFactory,
                                          UserPreferenceFactory, BreakfastIngredientFactory)
 
-from eggsnspam.extensions import db
-from eggsnspam.oop_orm import models
+from skynet.extensions import db
+from skynet.oop_orm import models
 
 from . import BaseTestCase
 from .mixins import HealthViewTestCaseMixin, OrmTestCase

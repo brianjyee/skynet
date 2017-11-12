@@ -1,4 +1,4 @@
-from eggsnspam.common.recommendations import dot_product
+from skynet.common.recommendations import dot_product
 
 from .daos import BreakfastDao, IngredientDao, UserDao, UserPreferenceDao, BreakfastIngredientDao
 

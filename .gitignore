@@ -2,7 +2,7 @@
 *.pyc
 
 # SQLite DB
-eggsnspam.db
+skynet.db
 
 # Log files
 *.log
@@ -12,3 +12,6 @@ eggsnspam.db
 
 # venv
 *venv
+
+# idea
+.idea

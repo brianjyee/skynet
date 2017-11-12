@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify
 from .daos import BreakfastRecsDao
 
-from eggsnspam.common.recommendations import dot_product
+from skynet.common.recommendations import dot_product
 
 simple_phrasebook = Blueprint('simple_phrasebook', __name__, url_prefix='/simple_phrasebook')
 

@@ -113,11 +113,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Bootstrap the eggsnspam virtualenv
-source ~/.virtualenvs/eggsnspam/bin/activate
+# Bootstrap the skynet virtualenv
+source ~/.virtualenvs/skynet/bin/activate
 
-# Go to the eggsnspam root folder
-cd ~/eggsnspam
+# Go to the skynet root folder
+cd ~/skynet
 
 clear
 echo "Eggs n' Spam - Example Flask App"

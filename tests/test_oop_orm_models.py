@@ -1,7 +1,7 @@
 from factories.oop_orm_factories import (BreakfastFactory, IngredientFactory, UserFactory,
                                          UserPreferenceFactory, BreakfastIngredientFactory)
 
-from eggsnspam.extensions import db
+from skynet.extensions import db
 
 from . import BaseTestCase
 from .mixins import OrmTestCase

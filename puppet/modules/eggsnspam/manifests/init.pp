@@ -1,10 +1,10 @@
-class eggsnspam {
+class skynet {
 
   package { ['sqlite3']:
     ensure => present;
   }
 
-  file { '/home/vagrant/eggsnspam':
+  file { '/home/vagrant/skynet':
     ensure => 'link',
     target => '/vagrant',
   }
@@ -14,10 +14,10 @@ class eggsnspam {
   }
 
   exec { 'resource title':
-    command     => '/home/vagrant/eggsnspam/bin/init_db.sh',
-    creates     => '/home/vagrant/eggsnspam/eggsnspam.db',
-    cwd         => '/home/vagrant/eggsnspam',
-    require     => File['/home/vagrant/eggsnspam'],
+    command     => '/home/vagrant/skynet/bin/init_db.sh',
+    creates     => '/home/vagrant/skynet/skynet.db',
+    cwd         => '/home/vagrant/skynet',
+    require     => File['/home/vagrant/skynet'],
   }
 
   class { 'python' :
@@ -28,16 +28,16 @@ class eggsnspam {
     gunicorn   => 'absent',
   }
 
-  python::virtualenv { '/home/vagrant/eggsnspam' :
+  python::virtualenv { '/home/vagrant/skynet' :
     ensure       => present,
     version      => 'system',
     requirements => '/vagrant/requirements.txt',
     systempkgs   => false,
     distribute   => false,
-    venv_dir     => '/home/vagrant/.virtualenvs/eggsnspam',
+    venv_dir     => '/home/vagrant/.virtualenvs/skynet',
     owner        => 'vagrant',
     group        => 'vagrant',
-    cwd          => '/home/vagrant/eggsnspam',
-    require      => [ File['/home/vagrant/.virtualenvs'], File['/home/vagrant/eggsnspam'], Class['python'] ]
+    cwd          => '/home/vagrant/skynet',
+    require      => [ File['/home/vagrant/.virtualenvs'], File['/home/vagrant/skynet'], Class['python'] ]
   }
 }

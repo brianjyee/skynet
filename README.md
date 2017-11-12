@@ -71,7 +71,7 @@ So long as you have Vagrant installed and configured, you should be good to go. 
 
 1) Clone the repo
 
-2) Initialize Vagrant from the `eggsnspam` folder
+2) Initialize Vagrant from the `skynet` folder
 ```bash
 vagrant up
 ```
@@ -86,7 +86,7 @@ bin/run_tests.sh
 bin/run_local.sh
 ```
 
-You should now have the eggsnspam service running on http://localhost:8888/
+You should now have the skynet service running on http://localhost:8888/
 
 ### Run These Example Queries inside your VM while `run_local.sh` is running
 

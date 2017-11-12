@@ -3,7 +3,7 @@
 
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
-  config.vm.hostname = "eggsnspam.box"
+  config.vm.hostname = "skynet.box"
   config.vm.network "forwarded_port", guest: 8888, host: 8888
 
   config.vm.provider :virtualbox do |vb|

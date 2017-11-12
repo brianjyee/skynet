@@ -1,7 +1,7 @@
 import os
 import tempfile
 
-from eggsnspam.extensions import db
+from skynet.extensions import db
 
 from .factories import oop_orm_factories
 
@@ -88,6 +88,6 @@ class BaseDaoFixturedTestCase(SqlFixturedTestCase):
 class PhrasebookFixturedTestCase(SqlFixturedTestCase):
 
     sql_fixtures = [
-        'eggsnspam/table_defs/eggsnspam.sqlite3.sql',
-        'tests/fixtures/eggsnspam.sql',
+        'skynet/table_defs/skynet.sqlite3.sql',
+        'tests/fixtures/skynet.sql',
     ]

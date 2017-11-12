@@ -1,6 +1,6 @@
 import factory
 
-from eggsnspam.oop_orm import models
+from skynet.oop_orm import models
 
 
 class BreakfastFactory(factory.alchemy.SQLAlchemyModelFactory):

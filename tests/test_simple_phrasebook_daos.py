@@ -1,6 +1,6 @@
 from . import BaseTestCase
 from .mixins import PhrasebookFixturedTestCase
-from eggsnspam.simple_phrasebook.daos import BreakfastRecsDao
+from skynet.simple_phrasebook.daos import BreakfastRecsDao
 
 
 class BreakfastRecsDaoTestCase(PhrasebookFixturedTestCase, BaseTestCase):

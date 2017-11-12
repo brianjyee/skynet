@@ -4,8 +4,8 @@ from .collections import BreakfastCollection, IngredientCollection, UserCollecti
 from .forms import UserForm, UserPreferenceForm
 from .models import BreakfastModel, IngredientModel, UserModel, UserPreferenceModel
 
-from eggsnspam.common import healthcheck_views
-from eggsnspam.common import responses
+from skynet.common import healthcheck_views
+from skynet.common import responses
 
 
 oop_phrasebook = Blueprint('oop_phrasebook', __name__, url_prefix='/oop_phrasebook')
