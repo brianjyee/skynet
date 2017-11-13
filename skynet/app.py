@@ -10,10 +10,8 @@ import wtforms_json
 from flask import Flask
 
 from .extensions import db
-from .oop_orm import oop_orm
-from .oop_phrasebook import oop_phrasebook
-from .simple_phrasebook import simple_phrasebook
 from .home import home
+from .roku import roku
 
 
 # For import *
@@ -21,10 +19,8 @@ __all__ = ['create_app']
 
 
 DEFAULT_BLUEPRINTS = (
-    oop_orm,
-    oop_phrasebook,
-    simple_phrasebook,
-    home
+    home,
+    roku
 )
 
 
@@ -44,7 +40,7 @@ def configure_app(app):
     if 'FLASK_CONFIG' in os.environ:
         app.config.from_object(os.environ['FLASK_CONFIG'])
     else:
-        raise ValueError("No FLASK_CONFIG environment variable. Cannot load app configuration.")
+        app.config.from_object('skynet.settings.dev.DevConfig')
 
 
 def configure_blueprints(app, blueprints):

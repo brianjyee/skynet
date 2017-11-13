@@ -3,8 +3,6 @@ import tempfile
 
 from skynet.extensions import db
 
-from .factories import oop_orm_factories
-
 
 class HealthViewTestCaseMixin(object):
     """Testcase for healthcheck endpoint"""
@@ -44,26 +42,6 @@ class HealthViewTestCaseMixin(object):
         self.assertEqual(self.client.get(self.base_url_path + '/healthcheck').status_code, 200)
 
 
-class OrmTestCase(object):
-
-    def setUp(self):
-        super(OrmTestCase, self).setUp()
-        db.create_all()
-        self.set_factory_session(db)
-
-    def set_factory_session(self, db):
-        """
-        Set the session object on each factory we intend to use.
-
-        It is required for integrating SQLAlchemy with Factories.
-        """
-        oop_orm_factories.BreakfastFactory._meta.sqlalchemy_session = db.session
-        oop_orm_factories.IngredientFactory._meta.sqlalchemy_session = db.session
-        oop_orm_factories.UserFactory._meta.sqlalchemy_session = db.session
-        oop_orm_factories.UserPreferenceFactory._meta.sqlalchemy_session = db.session
-        oop_orm_factories.BreakfastIngredientFactory._meta.sqlalchemy_session = db.session
-
-
 class SqlFixturedTestCase(object):
 
     sql_fixtures = []
@@ -82,12 +60,4 @@ class BaseDaoFixturedTestCase(SqlFixturedTestCase):
 
     sql_fixtures = [
         'tests/fixtures/base_dao.sql'
-    ]
-
-
-class PhrasebookFixturedTestCase(SqlFixturedTestCase):
-
-    sql_fixtures = [
-        'skynet/table_defs/skynet.sqlite3.sql',
-        'tests/fixtures/skynet.sql',
     ]

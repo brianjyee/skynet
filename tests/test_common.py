@@ -1,7 +1,7 @@
 from sqlalchemy.sql.expression import text
 
 from . import BaseTestCase
-from skynet.common.daos import SqlBaseDao
+from skynet.common.base_daos import SqlBaseDao
 from skynet.common.recommendations import dot_product
 from .mixins import BaseDaoFixturedTestCase
 

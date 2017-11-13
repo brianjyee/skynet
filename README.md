@@ -86,13 +86,13 @@ bin/run_tests.sh
 bin/run_local.sh
 ```
 
-You should now have the skynet service running on http://localhost:8888/
+You should now have the skynet service running on http://localhost:8497/
 
 ### Run These Example Queries inside your VM while `run_local.sh` is running
 
 ```
 ## Create a user using oop_phrasebook
-curl -X "POST" "http://localhost:8888/oop_phrasebook/user/" \
+curl -X "POST" "http://localhost:8497/oop_phrasebook/user/" \
      -H "Content-Type: text/plain; charset=utf-8" \
      -d $'{
   "first_name": "Robert",
@@ -100,7 +100,7 @@ curl -X "POST" "http://localhost:8888/oop_phrasebook/user/" \
 }'
 
 ## Create a user using oop_orm
-curl -X "POST" "http://localhost:8888/oop_orm/user/" \
+curl -X "POST" "http://localhost:8497/oop_orm/user/" \
      -H "Content-Type: text/plain; charset=utf-8" \
      -d $'{
   "first_name": "Dolores",
@@ -108,13 +108,13 @@ curl -X "POST" "http://localhost:8888/oop_orm/user/" \
 }'
 
 ## Get a user using oop_orm
-curl -X "GET" "http://localhost:8888/oop_orm/user/1"
+curl -X "GET" "http://localhost:8497/oop_orm/user/1"
 
 ## Get recommendations using oop_phrasebook
-curl -X "GET" "http://localhost:8888/oop_phrasebook/user/1/breakfast_recommendations"
+curl -X "GET" "http://localhost:8497/oop_phrasebook/user/1/breakfast_recommendations"
 
 ## Get recommendations using simple_phrasebook
-curl -X "GET" "http://localhost:8888/simple_phrasebook/user/1/breakfast_recommendations"
+curl -X "GET" "http://localhost:8497/simple_phrasebook/user/1/breakfast_recommendations"
 ```
 
 Acknowledgements
